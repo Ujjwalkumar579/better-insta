@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better INsta</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+
+
+    <div id="div1" ondragover="pickIt(event)" ondrop="droptIt(event)">
+        <img src="./img/number-one.png" id="drag1" alt="" draggable="true" ondragstart="moveIt(event)" >
+    </div>
+
+    <div id="div2" ondragover="pickIt(event)" ondrop="droptIt(event)">
+        <img src="./img/number-2.png" alt="" id="drag2" draggable="true"  ondragstart="moveIt(event)">
+    </div>
+
+    <div id="div3" ondragover="pickIt(event)" ondrop="droptIt(event)">
+        <img src="./img/number-3.png" alt="" id="drag3" draggable="true" ondragstart="moveIt(event)">
+    </div>
+
+    <div id="div4" ondragover="pickIt(event)" ondrop="droptIt(event)">
+        <img src="./img/number-four.png" alt="" id="drag4" draggable="true" ondragstart="moveIt(event)">
+    </div>
+
+    <div id="div5" ondragover="pickIt(event)" ondrop="droptIt(event)">
+        <img src="./img/number-5.png" alt="" id="drag5" draggable="true" ondragstart="moveIt(event)">
+    </div>
+
+    <div id="div6" ondragover="pickIt(event)" ondrop="droptIt(event)">
+        <img src="./img/six.png" alt="" id="drag6" draggable="true" ondragstart="moveIt(event)">
+    </div>
+
+    <script>
+
+        function pickIt(ev1) {
+            
+            ev1.preventDefault();
+        }
+
+        // console.log(evn1);
+
+        function moveIt(ev2) {
+            ev2.dataTransfer.setData('text', ev2.target.id);
+        }
+        function droptIt(ev3) {
+            ev3.preventDefault();
+            var file = ev3.dataTransfer.getData("text");
+            var src = document.getElementById(file);
+            var srcParent = src.parentNode;
+            var target = ev3.currentTarget.firstElementChild;
+
+            ev3.currentTarget.replaceChild(src,target);
+            srcParent.appendChild(target);
+            // console.log(file);
+            // var file2 = 
+        }
+
+        // function khatamIt(ev)
+        // {
+        //     ev.preventDefault();
+        //     var idOfEnd = ev.target.id;
+        //     console.log(idOfEnd+"this is end ID");
+        // }
+        // div1 me drag2 image hai
+        // div2 me drag1 imge h;
+
+
+
+    </script>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
